@@ -10,8 +10,18 @@ public class Main {
         System.out.println("Введите количество шагов симуляции: ");
         int totalSteps = scanner.nextInt();
 
-        System.out.println("Вводить задачи вручную? (1 - да, 0 - нет): ");
-        boolean manualInput = scanner.nextInt() == 1;
+        int inputChoice;
+        do {
+            System.out.println("Вводить задачи вручную? (1 - да, 0 - нет): ");
+            inputChoice = scanner.nextInt();
+            if (inputChoice != 0 && inputChoice != 1) {
+                System.out.println("Нунжо вводить только 0 или 1. Попробуйте еще раз.");
+            }
+
+        } while (inputChoice != 0 && inputChoice != 1);
+
+
+        boolean manualInput = inputChoice == 1;
 
         system.runSimulation(totalSteps, manualInput);
     }
